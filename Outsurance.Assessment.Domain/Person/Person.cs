@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Outsurance.Assessment.Domain.Person
 {
-    class Person
+    public class Person
     {
+        public string FirstName;
+        public string LastName;
+        public string Address;
+        public string PhoneNumber;
+
     }
 }
