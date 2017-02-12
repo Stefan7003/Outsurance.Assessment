@@ -37,7 +37,7 @@ namespace Outsurance.Assessment.Domain
                     fileReadingException is NotSupportedException ||
                     fileReadingException is SecurityException)
             { 
-                throw new CSVFileReadingException("File Reading Exceptions", fileReadingException);
+                throw new CSVFileReadingException("Can not read File", fileReadingException);
             }
             catch (Exception fileFormatException ) when 
                 (fileFormatException is IndexOutOfRangeException ||
@@ -57,6 +57,11 @@ namespace Outsurance.Assessment.Domain
             returnList.AddRange(GetFirstNameList());
             returnList.AddRange(GetLastNameList());
             return returnList;
+        }
+
+        public List<string> GetFullNameList()
+        {
+            return peopleList.Select(x => x.FirstName + " " + x.LastName).ToList<string>();
         }
 
         public List<string> GetFirstNameList()

@@ -30,15 +30,5 @@ namespace Outsurance.Assessment.Domain.UnitTests
             people.PeopleCSVReader(ICSVReaderMock, "InvalidFileName");
             Console.WriteLine(people.PeopleList);
         }
-
-        [TestMethod]
-        public void PeopleCSVReader_read_file()
-        {
-            People people = new People();
-            CSVReader reader = new CSVReader();
-            string filePath = System.IO.Path.GetFullPath(@"..\..\..\") + "CSV\\data.csv";
-            people.PeopleCSVReader(reader, filePath);
-        }
-
     }
 }
