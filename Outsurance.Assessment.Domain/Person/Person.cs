@@ -8,6 +8,9 @@ namespace Outsurance.Assessment.Domain
 {
     public class Person
     {
+        protected Person()
+        { }
+
         public string FirstName { get; protected set; }
         public string LastName { get; protected set; }
 
@@ -16,6 +19,12 @@ namespace Outsurance.Assessment.Domain
 
         public static Person CreatePerson(string firstName, string lastName, string address, string phoneNumber)
         {
+            if(string.IsNullOrEmpty(firstName) || 
+                string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(address))
+            {
+                throw new ArgumentException("All required field not provided");
+            }
             Person person = new Person()
             {
                 FirstName = firstName,
